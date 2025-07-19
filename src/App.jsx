@@ -4,6 +4,7 @@ import HomePage from "./pages/home";
 import AboutPage from "./pages/about";
 import Header from "./components/Header";
 import NotFound from "./pages/not-found";
+import CoinDetailsPage from "./pages/coin-details";
 
 const API_URL = import.meta.env.VITE_API_URL
 
@@ -37,11 +38,12 @@ const App = () => {
 
   return (
     <>
-    <Header/>
+      <Header />
       <Routes>
         <Route path="/" element={<HomePage coins={coins} filter={filter} setFilter={setFilter} limit={limit} setLimit={setLimit} sortBy={sortBy} setSortBy={setSortBy} loading={loading} error={error} />} />
         <Route path="/about" element={<AboutPage />} />
-        <Route path="*" element={<NotFound/>}/>
+        <Route path="/coin/:id" element={<CoinDetailsPage />} />
+        <Route path="*" element={<NotFound />} />
       </Routes>
     </>
   );
